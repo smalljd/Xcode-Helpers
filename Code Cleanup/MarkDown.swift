@@ -44,11 +44,20 @@ class MarkDown: NSObject, XCSourceEditorCommand {
     func backTickSelection(selection: LineSelection, invocation: XCSourceEditorCommandInvocation) {
         // Replace the text on the selected line with a `` surrounded string.
         let trimmedHighlightedText = selection.highlightedText.trimmingCharacters(in: .whitespaces).backTicked()
-        if let rangeOfTextToChange = selection.rangeOfHighlightedText {
-            let replacementLine = selection.fullLineText.replacingCharacters(in: rangeOfTextToChange,
-                                                                             with: trimmedHighlightedText)
-            invocation.buffer.lines[selection.start.line] = replacementLine
+        guard let rangeOfTextToChange = selection.rangeOfHighlightedText else {
+            return
         }
+
+        let replacementLine = selection.fullLineText.replacingCharacters(in: rangeOfTextToChange,
+                                                                         with: trimmedHighlightedText)
+        // Coorect the text
+        invocation.buffer.lines[selection.start.line] = replacementLine
+
+        let endPosition = Position(line: selection.end.line,
+                                   column: selection.start.column + replacementLine.characters.count - 1)
+
+        // Update the highlighted text position
+        updateHighlightedText(invocation: invocation, start: selection.start, end: endPosition)
     }
 }
 

@@ -27,19 +27,21 @@ class CamelCase: NSObject, XCSourceEditorCommand {
         // Otherwise, lower camel-case the selection.
         let camelCasedSelection = invocation.commandIdentifier.contains("UpperCamelCase") ? selection.highlightedText.camelCased(upper: true) : selection.highlightedText.camelCased()
 
-        // Update the selected lines with the new camel-cased word.
-        if let rangeToChange =  selection.rangeOfHighlightedText {
-            let newLine =  selection.fullLineText.replacingCharacters(in: rangeToChange, with: camelCasedSelection)
-            invocation.buffer.lines[selection.start.line] = newLine
+
+        guard let rangeToChange =  selection.rangeOfHighlightedText else {
+            return
         }
 
-        // Update the selection so that the newly camel-cased word is highlighted.
-        let endColumnPosition = (invocation.buffer.lines[selection.start.line] as! String).characters.count - 1
-        let newSelectionBuffer = XCSourceTextRange(start: XCSourceTextPosition(line: selection.start.line,
-                                                                               column: selection.start.column),
-                                                   end: XCSourceTextPosition(line: selection.start.line,
-                                                                             column: endColumnPosition))
+        // Update the `selectedLines` with the new camel-cased word.
+        let newLine =  selection.fullLineText.replacingCharacters(in: rangeToChange, with: camelCasedSelection)
+        invocation.buffer.lines[selection.start.line] = newLine
 
-        invocation.buffer.selections.setArray([newSelectionBuffer])
+        // Update the selection so that the newly camel-cased word is highlighted.
+        let endColumnPosition =  selection.start.column + newLine.characters.count - 1
+
+        updateHighlightedText(invocation: invocation,
+                              start: selection.start,
+                              end: Position(line: selection.start.line,
+                                            column: endColumnPosition))
     }
 }

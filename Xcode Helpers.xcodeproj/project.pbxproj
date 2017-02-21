@@ -19,6 +19,7 @@
 		1F9D79C11E5BAF3100E448F4 /* CamelCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9D79C01E5BAF3100E448F4 /* CamelCase.swift */; };
 		1F9D79C51E5BAF3100E448F4 /* Code Cleanup.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 1F9D79B71E5BAF3100E448F4 /* Code Cleanup.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		1F9D79CD1E5BB05300E448F4 /* String+XcodeHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9D79CC1E5BB05300E448F4 /* String+XcodeHelpers.swift */; };
+		1FAFA84A1E5BD9230005FC26 /* XCSourceEditorCommand+XcodeHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAFA8491E5BD9230005FC26 /* XCSourceEditorCommand+XcodeHelpers.swift */; };
 		1FF58B5C1E5BC9CA00DF42A7 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF58B5B1E5BC9CA00DF42A7 /* Utilities.swift */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +82,7 @@
 		1F9D79C01E5BAF3100E448F4 /* CamelCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CamelCase.swift; sourceTree = "<group>"; };
 		1F9D79C21E5BAF3100E448F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F9D79CC1E5BB05300E448F4 /* String+XcodeHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+XcodeHelpers.swift"; sourceTree = "<group>"; };
+		1FAFA8491E5BD9230005FC26 /* XCSourceEditorCommand+XcodeHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCSourceEditorCommand+XcodeHelpers.swift"; sourceTree = "<group>"; };
 		1FF58B5B1E5BC9CA00DF42A7 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -212,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				1F9D79CC1E5BB05300E448F4 /* String+XcodeHelpers.swift */,
+				1FAFA8491E5BD9230005FC26 /* XCSourceEditorCommand+XcodeHelpers.swift */,
 			);
 			name = "Text Correction";
 			sourceTree = "<group>";
@@ -413,6 +416,7 @@
 				1F9D79BF1E5BAF3100E448F4 /* SourceEditorExtension.swift in Sources */,
 				1F9D79CD1E5BB05300E448F4 /* String+XcodeHelpers.swift in Sources */,
 				1FF58B5C1E5BC9CA00DF42A7 /* Utilities.swift in Sources */,
+				1FAFA84A1E5BD9230005FC26 /* XCSourceEditorCommand+XcodeHelpers.swift in Sources */,
 				1F9D79C11E5BAF3100E448F4 /* CamelCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
